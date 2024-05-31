@@ -1,5 +1,9 @@
 ### Hi there 👋
 
+You've found my GitHub. Maybe you'll find some code you can use.
+
+Good Luck!
+
 <!--
 **Saturate/Saturate** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
