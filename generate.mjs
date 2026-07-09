@@ -193,8 +193,8 @@ function statsCards() {
   const borderColor = "30363d";
   const params = `theme=${theme}&text_color=${textColor}&title_color=${titleColor}&icon_color=${iconColor}&border_color=${borderColor}&hide_border=false`;
 
-  const statsUrl = `https://github-readme-stats.vercel.app/api?username=${USERNAME}&show_icons=true&count_private=true&include_all_commits=true&${params}`;
-  const langsUrl = `https://github-readme-stats.vercel.app/api/top-langs/?username=${USERNAME}&layout=compact&langs_count=10&hide=coffeescript&${params}`;
+  const statsUrl = `https://github-readme-stats-sigma-five.vercel.app/api?username=${USERNAME}&show_icons=true&count_private=true&include_all_commits=true&${params}`;
+  const langsUrl = `https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=${USERNAME}&layout=compact&langs_count=10&hide=coffeescript&${params}`;
   const streakUrl = `https://github-readme-streak-stats.herokuapp.com/?user=${USERNAME}&theme=transparent&ring=${titleColor}&fire=${titleColor}&currStreakLabel=${textColor}&sideLabels=${textColor}&dates=${textColor}&stroke=${borderColor}&border=${borderColor}&currStreakNum=${textColor}&sideNums=${textColor}`;
 
   return `<p>
