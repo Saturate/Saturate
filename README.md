@@ -14,31 +14,17 @@ Full-stack builder from Copenhagen, Denmark. I split my time between security re
 
 ## Featured projects
 
+### [PromptKiddie](https://github.com/Saturate/PromptKiddie)
 
-**Security Research**
+A security reconnaissance tool that chains LLM-driven analysis with real scanning tools. Point it at a target and it builds an attack surface map, runs port scans, checks for common vulnerabilities, and writes up findings. Built to make the boring parts of pentesting faster without replacing the human judgment calls.
 
-| Repository | Description | Info |
-|:-----------|:------------|:-----|
-| [Saturate/CVE-2025-55182-Scanner](https://github.com/Saturate/CVE-2025-55182-Scanner) | Bash scanner for CVE-2025-55182 in Next.js apps. | `Shell` |
-| [Saturate/CVE-2025-55183](https://github.com/Saturate/CVE-2025-55183) | CVE-2025-55183 secret miner. | `TypeScript` |
-| [Saturate/PromptKiddie](https://github.com/Saturate/PromptKiddie) | You are an expert script kiddie, make no mistakes. | `TypeScript` |
-| [Saturate/ip-enrichment](https://github.com/Saturate/ip-enrichment) | Multi-provider threat intel and geolocation service. | `Rust` |
+### [Cartridge](https://github.com/Saturate/cartridge)
 
-**DevOps & Infrastructure**
+A programmable dev container built for AI coding agents. Runs Claude Code, Pi, Codex, Gemini CLI, or any other agent harness inside a single container with built-in tunnels (Cloudflare, Tailscale), MCP servers, and Chromium. Designed to be orchestrated by tools that spawn and manage fleets of agents. Ships with Docker Compose and Helm charts for Kubernetes.
 
-| Repository | Description | Info |
-|:-----------|:------------|:-----|
-| [Saturate/traefik-wordpress](https://github.com/Saturate/traefik-wordpress) | Traefik reverse proxy with HTTPS for WordPress and more. |  |
-| [Saturate/ridgeline](https://github.com/Saturate/ridgeline) | Cross-tenant pull request monitor for Azure DevOps. | `TypeScript` |
+### [mitid-cli](https://github.com/Saturate/mitid-cli)
 
-**AI Agent Tooling**
-
-| Repository | Description | Info |
-|:-----------|:------------|:-----|
-| [Saturate/HUSK](https://github.com/Saturate/HUSK) | Observability meets context engineering for AI agents. OTel-native. | `TypeScript` |
-| [Saturate/clync](https://github.com/Saturate/clync) | Encrypted sync/backup for Claude Code sessions and memories. | `Rust` |
-| [Saturate/agents](https://github.com/Saturate/agents) | Skills, plugins, and config for AI coding agents. | `Shell` |
-| [Saturate/ccbar](https://github.com/Saturate/ccbar) | Fast, configurable statusline for Claude Code. Rust binary. | `Rust` |
+CLI and Node.js library that hacks Denmark's MitID authentication into the terminal. MitID was designed as a browser-only flow; this reverse-engineers the SRP protocol so you can authenticate from scripts, CI pipelines, and automated tests. Takes the pain out of testing anything that sits behind national ID login.
 
 
 ## Open source contributions

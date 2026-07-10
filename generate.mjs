@@ -13,18 +13,19 @@ const LINKEDIN = "allankimmerjensen";
 const DAWARICH_URL = "https://dawarich.akj.io";
 const HTB_USER_ID = 3697341;
 
-const FEATURED_REPOS = [
-  { repo: "Saturate/HUSK", desc: "Observability meets context engineering for AI agents. OTel-native." },
-  { repo: "Saturate/clync", desc: "Encrypted sync/backup for Claude Code sessions and memories." },
-  { repo: "Saturate/agents", desc: "Skills, plugins, and config for AI coding agents." },
-  { repo: "Saturate/ccbar", desc: "Fast, configurable statusline for Claude Code. Rust binary." },
-  { repo: "Saturate/CVE-2025-55182-Scanner", desc: "Bash scanner for CVE-2025-55182 in Next.js apps." },
-  { repo: "Saturate/CVE-2025-55183", desc: "CVE-2025-55183 secret miner." },
-  { repo: "Saturate/PromptKiddie", desc: "You are an expert script kiddie, make no mistakes." },
-  { repo: "Saturate/ip-enrichment", desc: "Multi-provider threat intel and geolocation service." },
-  { repo: "Saturate/traefik-wordpress", desc: "Traefik reverse proxy with HTTPS for WordPress and more." },
-  { repo: "Saturate/ridgeline", desc: "Cross-tenant pull request monitor for Azure DevOps." },
-];
+const FEATURED_PROJECTS = `
+### [PromptKiddie](https://github.com/Saturate/PromptKiddie)
+
+A security reconnaissance tool that chains LLM-driven analysis with real scanning tools. Point it at a target and it builds an attack surface map, runs port scans, checks for common vulnerabilities, and writes up findings. Built to make the boring parts of pentesting faster without replacing the human judgment calls.
+
+### [Cartridge](https://github.com/Saturate/cartridge)
+
+A programmable dev container built for AI coding agents. Runs Claude Code, Pi, Codex, Gemini CLI, or any other agent harness inside a single container with built-in tunnels (Cloudflare, Tailscale), MCP servers, and Chromium. Designed to be orchestrated by tools that spawn and manage fleets of agents. Ships with Docker Compose and Helm charts for Kubernetes.
+
+### [mitid-cli](https://github.com/Saturate/mitid-cli)
+
+CLI and Node.js library that hacks Denmark's MitID authentication into the terminal. MitID was designed as a browser-only flow with heavy anti-debugging and anti-automation measures that break Puppeteer, MCP browsers, and similar tools. This reverse-engineers the SRP protocol directly, bypassing the browser entirely. Authenticate from scripts, CI pipelines, and automated tests without fighting their bot detection.
+`;
 
 const PINNED_CONTRIBUTION_REPOS = [
   "pnpm/pnpm",
@@ -57,21 +58,6 @@ async function fetchProfile() {
   return ghFetch(`/users/${USERNAME}`);
 }
 
-async function fetchRepoData(fullName) {
-  try {
-    const repo = await ghFetch(`/repos/${fullName}`);
-    return {
-      name: repo.full_name,
-      description: repo.description || "",
-      stars: repo.stargazers_count,
-      forks: repo.forks_count,
-      language: repo.language,
-      url: repo.html_url,
-    };
-  } catch {
-    return null;
-  }
-}
 
 async function fetchAllExternalPRs() {
   const allPRs = [];
@@ -113,11 +99,6 @@ async function fetchNpmDownloads(repoFullName) {
   }
 }
 
-function repoCard(repo, overrideDesc) {
-  const desc = overrideDesc || repo.description;
-  const lang = repo.language ? `\`${repo.language}\`` : "";
-  return `| [${repo.name}](${repo.url}) | ${desc} | ${lang} |`;
-}
 
 async function contributionSection(allPRs) {
   const grouped = {};
@@ -779,12 +760,6 @@ async function generate() {
   console.log("Fetching profile...");
   const profile = await fetchProfile();
 
-  console.log("Fetching featured repos...");
-  const repoResults = await Promise.all(
-    FEATURED_REPOS.map((f) => fetchRepoData(f.repo))
-  );
-  const repos = repoResults.filter(Boolean);
-
   console.log("Fetching contribution PRs...");
   const [allPRs, stats, langs, travel, grafana, htb] = await Promise.all([
     fetchAllExternalPRs(),
@@ -799,30 +774,6 @@ async function generate() {
   const now = new Date();
   const years = now.getFullYear() - memberSince;
 
-  const featuredByCategory = {
-    "Security Research": FEATURED_REPOS.filter((f) =>
-      ["CVE-", "PromptKiddie", "ip-enrichment"].some((n) => f.repo.includes(n))
-    ),
-    "DevOps & Infrastructure": FEATURED_REPOS.filter((f) =>
-      ["traefik", "ridgeline"].some((n) => f.repo.includes(n))
-    ),
-    "AI Agent Tooling": FEATURED_REPOS.filter((f) =>
-      ["HUSK", "clync", "agents", "ccbar"].some((n) => f.repo.includes(n))
-    ),
-  };
-
-  let featuredTable = "";
-  for (const [category, items] of Object.entries(featuredByCategory)) {
-    featuredTable += `\n**${category}**\n\n`;
-    featuredTable += "| Repository | Description | Info |\n";
-    featuredTable += "|:-----------|:------------|:-----|\n";
-    for (const item of items) {
-      const repo = repos.find((r) => r.name === item.repo);
-      if (repo) {
-        featuredTable += repoCard(repo, item.desc) + "\n";
-      }
-    }
-  }
 
   const md = `# ${DISPLAY_NAME}
 
@@ -839,8 +790,7 @@ ${years}+ years on GitHub. ${profile.public_repos} public repos. Building at [Re
 ---
 
 ## Featured projects
-
-${featuredTable}
+${FEATURED_PROJECTS}
 
 ## Open source contributions
 
