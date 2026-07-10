@@ -2,7 +2,7 @@
 
 Full-stack builder from Copenhagen, Denmark. I split my time between security research and AI agent tooling, with a long history of shipping DevOps infrastructure, browser extensions, game mods, and whatever else catches my interest.
 
-16+ years on GitHub. 167 public repos. Building at [Remmik](https://github.com/Remmik) & [NORRIQ](https://norriq.com).
+16+ years on GitHub. 168 public repos. Building at [Remmik](https://github.com/Remmik) & [NORRIQ](https://norriq.com).
 
 [![Website](https://img.shields.io/badge/akj.io-000?style=flat-square&logo=safari&logoColor=white)](https://akj.io)
 [![Twitter](https://img.shields.io/badge/@allankjensen-000?style=flat-square&logo=x&logoColor=white)](https://x.com/allankjensen)
@@ -47,7 +47,7 @@ Full-stack builder from Copenhagen, Denmark. I split my time between security re
 |:-----------|:------------|------:|----:| -----------:|
 | [pnpm/pnpm](https://github.com/pnpm/pnpm) | Fast, disk space efficient package manager | 35,736 | 13 |  |
 | [pnpm/pacquet](https://github.com/pnpm/pacquet) | The official pnpm rewrite in Rust | 1,160 | 9 |  |
-| [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) | JavaScript API for Chrome and Firefox | 95,363 | 2 |  |
+| [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) | JavaScript API for Chrome and Firefox | 95,398 | 2 |  |
 | [npm/npm](https://github.com/npm/npm) | This repository is moving to: https://github.com/npm/cli | 17,627 | 1 |  |
 | [jumbocontext/jumbo.cli](https://github.com/jumbocontext/jumbo.cli) | Memory and Context Orchestration for Coding Agents | 260 | 6 | 3,772 |
 | [VincentGarreau/particles.js](https://github.com/VincentGarreau/particles.js) | A lightweight JavaScript library for creating particles | 30,225 | 1 | 89,793 |
@@ -357,9 +357,6 @@ PentiaLabs/watch.publish.projects:
 <p>
   <img src="./stats.svg" alt="GitHub stats" />
   <img src="./languages.svg" alt="Top languages" />
-  <img src="./ai.svg" alt="AI stats" />
-  <img src="./server.svg" alt="Server stats" />
-  <img src="./travel.svg" alt="Movement stats" />
 </p>
 
 ---
