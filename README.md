@@ -24,7 +24,7 @@ A programmable dev container built for AI coding agents. Runs Claude Code, Pi, C
 
 ### [mitid-cli](https://github.com/Saturate/mitid-cli)
 
-CLI and Node.js library that hacks Denmark's MitID authentication into the terminal. MitID was designed as a browser-only flow; this reverse-engineers the SRP protocol so you can authenticate from scripts, CI pipelines, and automated tests. Takes the pain out of testing anything that sits behind national ID login.
+CLI and Node.js library that hacks Denmark's MitID authentication into the terminal. MitID was designed as a browser-only flow with heavy anti-debugging and anti-automation measures that break Puppeteer, MCP browsers, and similar tools. This reverse-engineers the SRP protocol directly, bypassing the browser entirely. Authenticate from scripts, CI pipelines, and automated tests without fighting their bot detection.
 
 
 ## Open source contributions
