@@ -11,6 +11,7 @@ const LOCATION = "Copenhagen, Denmark";
 const TWITTER = "allankjensen";
 const LINKEDIN = "allankimmerjensen";
 const DAWARICH_URL = "https://dawarich.akj.io";
+const HTB_USER_ID = 3697341;
 
 const FEATURED_REPOS = [
   { repo: "Saturate/HUSK", desc: "Observability meets context engineering for AI agents. OTel-native." },
@@ -249,13 +250,15 @@ function formatTokens(n) {
 }
 
 function generateAISvg(grafana) {
-  return generateCardSvg("AI (30d)", CAT.mauve, null, [
-    { icon: ICON.brain, label: "Sessions", value: grafana.sessions.toLocaleString() },
+  const totalSessions = grafana.sessions + grafana.piSessions;
+  const items = [
+    { icon: ICON.brain, label: "Sessions", value: totalSessions.toLocaleString() },
     { icon: ICON.terminal, label: "Tool calls", value: grafana.toolCalls.toLocaleString() },
     { icon: ICON.folder, label: "Projects", value: grafana.projects.toLocaleString() },
     { icon: ICON.layers, label: "Output tokens", value: formatTokens(grafana.outputTokens) },
     { icon: ICON.layers, label: "Cache tokens", value: formatTokens(grafana.cacheTokens) },
-  ]);
+  ];
+  return generateCardSvg("AI (30d)", CAT.mauve, null, items);
 }
 
 function generateServerSvg(grafana) {
@@ -413,6 +416,30 @@ async function fetchLanguages() {
     .slice(0, 10);
 }
 
+async function fetchHTBStats() {
+  const token = process.env.HTB_TOKEN;
+  if (!token) { console.log("HTB_TOKEN not set, skipping HackTheBox stats."); return null; }
+  try {
+    const res = await fetch(`https://labs.hackthebox.com/api/v4/user/profile/basic/${HTB_USER_ID}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const p = data.profile;
+    return {
+      rank: p.rank,
+      ranking: p.ranking,
+      systemOwns: p.system_owns,
+      userOwns: p.user_owns,
+      points: p.points,
+      country: p.country_code,
+    };
+  } catch (err) {
+    console.log(`HTB fetch failed: ${err.message}`);
+    return null;
+  }
+}
+
 async function fetchDawarichStats() {
   const apiKey = process.env.DAWARICH_API_KEY;
   if (!apiKey) { console.log("DAWARICH_API_KEY not set, skipping travel stats."); return null; }
@@ -450,6 +477,22 @@ async function grafanaLokiQuery(query) {
   } catch { return null; }
 }
 
+async function grafanaTempoSearch(tags, startOffset = 30 * 86400) {
+  const token = process.env.GRAFANA_TOKEN;
+  if (!token) return [];
+  try {
+    const now = Math.floor(Date.now() / 1000);
+    const url = new URL(`${GRAFANA_URL}/api/datasources/proxy/4/api/search`);
+    if (tags) url.searchParams.set("tags", tags);
+    url.searchParams.set("limit", "1000");
+    url.searchParams.set("start", String(now - startOffset));
+    url.searchParams.set("end", String(now));
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+    const data = await res.json();
+    return data.traces || [];
+  } catch { return []; }
+}
+
 async function grafanaPrometheusQuery(query) {
   const token = process.env.GRAFANA_TOKEN;
   if (!token) return null;
@@ -466,12 +509,13 @@ async function fetchGrafanaStats() {
   const token = process.env.GRAFANA_TOKEN;
   if (!token) { console.log("GRAFANA_TOKEN not set, skipping Grafana stats."); return null; }
   try {
-    const [sessions, toolCalls, projects, outputTokens, cacheTokens, uptime, wafEvents, services] = await Promise.all([
+    const [sessions, toolCalls, projects, outputTokens, cacheTokens, piTraces, uptime, wafEvents, services] = await Promise.all([
       grafanaLokiQuery('sum(count_over_time({source="claude-code", event="session"} |= "session_start" [30d]))'),
       grafanaLokiQuery('sum(count_over_time({source="claude-code", event="tool"} [30d]))'),
       grafanaLokiQuery('count(sum by (project) (count_over_time({source="claude-code", event="session"} |= "session_start" [30d])))'),
       grafanaLokiQuery('sum(sum_over_time({source="claude-code", event="turn"} | json | unwrap usage_output_tokens [30d]))'),
       grafanaLokiQuery('sum(sum_over_time({source="claude-code", event="turn"} | json | unwrap usage_cache_read_input_tokens [30d]))'),
+      grafanaTempoSearch("service.name=pi-agent"),
       grafanaPrometheusQuery('(node_time_seconds - node_boot_time_seconds) / 86400'),
       grafanaLokiQuery('sum(count_over_time({app="coraza-waf"} [30d]))'),
       fetch(`${GRAFANA_URL}/api/datasources/proxy/1/loki/api/v1/label/app/values`, {
@@ -484,6 +528,7 @@ async function fetchGrafanaStats() {
       projects: parseInt(projects) || 0,
       outputTokens: parseInt(outputTokens) || 0,
       cacheTokens: parseInt(cacheTokens) || 0,
+      piSessions: piTraces.length,
       uptimeDays: Math.floor(parseFloat(uptime) || 0),
       wafEvents: parseInt(wafEvents) || 0,
       services: services || 0,
@@ -546,6 +591,190 @@ function generateMovementSvg(travel) {
   ]);
 }
 
+function renderPanelRows(items, accentColor, startX, startY, panelW) {
+  const rowH = 26;
+  return items.map((item, i) => {
+    const y = startY + 12 + i * rowH;
+    const iconY = y - 10;
+    return `<g transform="translate(${startX}, ${iconY})">
+      <svg width="14" height="14" viewBox="0 0 24 24" stroke="${accentColor}" fill="none">${item.icon}</svg>
+    </g>
+    <text x="${startX + 22}" y="${y}" fill="${CAT.subtext1}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12">${item.label}</text>
+    <text x="${startX + panelW - 8}" y="${y}" fill="${CAT.text}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" text-anchor="end">${item.value}</text>`;
+  }).join("\n    ");
+}
+
+function renderPanelHeader(title, accentColor, x, y, w) {
+  return `<text x="${x}" y="${y + 16}" fill="${accentColor}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600">${title}</text>
+  <line x1="${x}" y1="${y + 26}" x2="${x + w - 16}" y2="${y + 26}" stroke="${CAT.surface1}" stroke-width="0.5"/>`;
+}
+
+function generateDashboardSvg(stats, langs, grafana, travel, profile, thm, htb) {
+  const W = 840;
+  const pad = 20;
+  const gap = 16;
+  const colW = (W - pad * 2 - gap * 2) / 3;
+  const panelHeaderH = 36;
+  const rowH = 26;
+
+  // Column 1: GitHub Stats
+  const accountAgeDays = Math.floor((Date.now() - new Date(profile.created_at).getTime()) / 86400000);
+  const ageYears = Math.floor(accountAgeDays / 365);
+  const ageRemDays = accountAgeDays % 365;
+  const ghItems = [
+    { icon: STAT_ICONS.Repos, label: "Repos", value: stats.repos.toLocaleString() },
+    { icon: STAT_ICONS.Commits, label: "Commits", value: stats.commits.toLocaleString() },
+    { icon: STAT_ICONS.PRs, label: "PRs", value: stats.prs.toLocaleString() },
+    { icon: STAT_ICONS.Followers, label: "Followers", value: stats.followers.toLocaleString() },
+    { icon: STAT_ICONS.Gists, label: "Gists", value: stats.gists.toLocaleString() },
+    { icon: ICON.clock, label: "Account age", value: `${ageYears}y ${ageRemDays}d` },
+  ];
+
+  // Column 2: AI + Server
+  const aiItems = grafana ? [
+    { icon: ICON.brain, label: "Sessions", value: (grafana.sessions + grafana.piSessions).toLocaleString() },
+    { icon: ICON.terminal, label: "Tool calls", value: grafana.toolCalls.toLocaleString() },
+    { icon: ICON.folder, label: "Projects", value: grafana.projects.toLocaleString() },
+    { icon: ICON.layers, label: "Output tokens", value: formatTokens(grafana.outputTokens) },
+    { icon: ICON.layers, label: "Cache tokens", value: formatTokens(grafana.cacheTokens) },
+  ] : [];
+
+  const serverItems = grafana ? [
+    { icon: ICON.clock, label: "Uptime", value: `${grafana.uptimeDays} days` },
+    { icon: ICON.boxes, label: "Services", value: grafana.services.toLocaleString() },
+    { icon: ICON.shield, label: "WAF events", value: grafana.wafEvents.toLocaleString() },
+  ] : [];
+
+  // Column 3: Security (THM + HTB) + Movement
+  const thmItems = thm ? [
+    { icon: ICON.shield, label: "Rank", value: `#${thm.rank.toLocaleString()} (top ${thm.topPercentage}%)` },
+    { icon: ICON.layers, label: "Score", value: Math.round(thm.level).toString() },
+    { icon: ICON.folder, label: "Rooms", value: thm.completedRooms.toLocaleString() },
+    { icon: ICON.terminal, label: "Streak", value: `${thm.streak} days` },
+  ] : [];
+
+  const htbItems = htb ? [
+    { icon: ICON.shield, label: "Rank", value: htb.rank },
+    { icon: ICON.layers, label: "Ranking", value: `#${htb.ranking.toLocaleString()}` },
+    { icon: ICON.server, label: "Owns", value: `${htb.userOwns + htb.systemOwns} (user: ${htb.userOwns}, sys: ${htb.systemOwns})` },
+  ] : [];
+
+  const moveItems = travel ? [
+    { icon: TRAVEL_ICONS.Distance, label: "Distance", value: `${travel.distanceKm.toLocaleString()} km (${travel.year})` },
+    { icon: TRAVEL_ICONS.Points, label: "Points", value: travel.points.toLocaleString() },
+    { icon: TRAVEL_ICONS["Active days"], label: "Active days", value: travel.activeDays.toLocaleString() },
+    { icon: TRAVEL_ICONS["Best streak"], label: "Best streak", value: `${travel.longestStreak} days` },
+  ] : [];
+
+  // Calculate top section height
+  const col1H = panelHeaderH + ghItems.length * rowH;
+  const col2H = (aiItems.length > 0 ? panelHeaderH + aiItems.length * rowH + gap : 0) +
+                (serverItems.length > 0 ? panelHeaderH + serverItems.length * rowH : 0);
+  const col3H = (thmItems.length > 0 ? panelHeaderH + thmItems.length * rowH + gap : 0) +
+                (htbItems.length > 0 ? panelHeaderH + htbItems.length * rowH + gap : 0) +
+                (moveItems.length > 0 ? panelHeaderH + moveItems.length * rowH : 0);
+  const topSectionH = Math.max(col1H, col2H, col3H);
+
+  // Treemap below
+  const treemapGap = gap;
+  const treemapY = pad + topSectionH + treemapGap;
+  const treemapH = 160;
+
+  const totalH = treemapY + panelHeaderH + treemapH + pad;
+
+  // Render columns
+  const col1X = pad;
+  const col2X = pad + colW + gap;
+  const col3X = pad + (colW + gap) * 2;
+
+  let svg = "";
+
+  // Column 1: GitHub Stats
+  svg += renderPanelHeader("GitHub", CAT.blue, col1X, pad, colW);
+  svg += "\n    " + renderPanelRows(ghItems, CAT.blue, col1X, pad + panelHeaderH, colW);
+
+  // Column 2: AI + Server
+  if (aiItems.length > 0) {
+    svg += "\n    " + renderPanelHeader("AI (30d)", CAT.mauve, col2X, pad, colW);
+    svg += "\n    " + renderPanelRows(aiItems, CAT.mauve, col2X, pad + panelHeaderH, colW);
+
+    const serverY = pad + panelHeaderH + aiItems.length * rowH + gap;
+    if (serverItems.length > 0) {
+      svg += "\n    " + renderPanelHeader("Server", CAT.peach, col2X, serverY, colW);
+      svg += "\n    " + renderPanelRows(serverItems, CAT.peach, col2X, serverY + panelHeaderH, colW);
+    }
+  }
+
+  // Column 3: Security + Movement
+  let col3Y = pad;
+  if (thmItems.length > 0) {
+    svg += "\n    " + renderPanelHeader("TryHackMe", CAT.red, col3X, col3Y, colW);
+    svg += "\n    " + renderPanelRows(thmItems, CAT.red, col3X, col3Y + panelHeaderH, colW);
+    col3Y += panelHeaderH + thmItems.length * rowH + gap;
+  }
+  if (htbItems.length > 0) {
+    svg += "\n    " + renderPanelHeader("HackTheBox", CAT.green, col3X, col3Y, colW);
+    svg += "\n    " + renderPanelRows(htbItems, CAT.green, col3X, col3Y + panelHeaderH, colW);
+    col3Y += panelHeaderH + htbItems.length * rowH + gap;
+  }
+  if (moveItems.length > 0) {
+    svg += "\n    " + renderPanelHeader("Movement", CAT.teal, col3X, col3Y, colW);
+    svg += "\n    " + renderPanelRows(moveItems, CAT.teal, col3X, col3Y + panelHeaderH, colW);
+  }
+
+  // Treemap
+  const total = langs.reduce((sum, l) => sum + l.count, 0);
+  const treemapItems = langs.map((l) => ({
+    lang: l.lang,
+    value: l.count,
+    pct: (l.count / total) * 100,
+    color: LANG_COLORS[l.lang] || "#8b949e",
+  }));
+
+  svg += "\n    " + renderPanelHeader("Languages", CAT.blue, pad, treemapY, W - pad * 2);
+
+  const tmX = pad;
+  const tmY = treemapY + panelHeaderH;
+  const tmW = W - pad * 2;
+  const tmGap = 3;
+  const rects = squarify(treemapItems, tmX, tmY, tmW, treemapH);
+
+  for (const r of rects) {
+    const rx = r.rx + tmGap / 2;
+    const ry = r.ry + tmGap / 2;
+    const rw = Math.max(0, r.rw - tmGap);
+    const rh = Math.max(0, r.rh - tmGap);
+    if (rw < 1 || rh < 1) continue;
+
+    const iconPath = LANG_ICONS[r.lang];
+    const canFitIcon = rw > 22 && rh > 22;
+    const canFitLabel = rw > 44 && rh > 38;
+    const canFitPct = rw > 44 && rh > 52;
+
+    const iconSize = Math.min(20, rw * 0.35, rh * 0.28);
+    const iconX = rx + (rw - iconSize) / 2;
+    const iconY = ry + (canFitLabel ? rh * 0.15 : (rh - iconSize) / 2);
+
+    svg += `\n    <rect x="${rx}" y="${ry}" width="${rw}" height="${rh}" rx="4" fill="${r.color}"/>`;
+    if (canFitIcon && iconPath) {
+      svg += `\n    <svg x="${iconX}" y="${iconY}" width="${iconSize}" height="${iconSize}" viewBox="0 0 24 24"><path d="${iconPath}" fill="${CAT.crust}" opacity="0.85"/></svg>`;
+    }
+    if (canFitLabel) {
+      const fontSize = Math.min(12, rw / (r.lang.length * 0.7));
+      const textY = iconY + iconSize + fontSize + 2;
+      svg += `\n    <text x="${rx + rw / 2}" y="${textY}" fill="${CAT.crust}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="${fontSize}" font-weight="600" text-anchor="middle" opacity="0.9">${r.lang}</text>`;
+      if (canFitPct) {
+        svg += `\n    <text x="${rx + rw / 2}" y="${textY + fontSize + 1}" fill="${CAT.crust}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="${Math.min(10, fontSize - 1)}" text-anchor="middle" opacity="0.5">${r.pct.toFixed(1)}%</text>`;
+      }
+    }
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${totalH}" viewBox="0 0 ${W} ${totalH}">
+  <rect width="${W - 2}" height="${totalH - 2}" x="1" y="1" rx="10" fill="${CAT.base}" stroke="${CAT.surface1}" stroke-width="1"/>
+  ${svg}
+</svg>`;
+}
+
 async function generate() {
   console.log("Fetching profile...");
   const profile = await fetchProfile();
@@ -557,12 +786,13 @@ async function generate() {
   const repos = repoResults.filter(Boolean);
 
   console.log("Fetching contribution PRs...");
-  const [allPRs, stats, langs, travel, grafana] = await Promise.all([
+  const [allPRs, stats, langs, travel, grafana, htb] = await Promise.all([
     fetchAllExternalPRs(),
     fetchStats(),
     fetchLanguages(),
     fetchDawarichStats(),
     fetchGrafanaStats(),
+    fetchHTBStats(),
   ]);
 
   const memberSince = new Date(profile.created_at).getFullYear();
@@ -619,31 +849,23 @@ ${await contributionSection(allPRs)}
 ## Stats
 
 <p>
-  <img src="./stats.svg" alt="GitHub stats" />
-  <img src="./languages.svg" alt="Top languages" />${grafana ? `
-  <img src="./ai.svg" alt="AI stats" />
-  <img src="./server.svg" alt="Server stats" />` : ""}${travel ? `
-  <img src="./travel.svg" alt="Movement stats" />` : ""}
+  <img src="./dashboard.svg" alt="Stats dashboard" />
 </p>
 
 ---
 
-<sub>This README is generated by [generate.mjs](./generate.mjs) and updated daily via GitHub Actions.</sub>
+<sub>Generated by [generate.mjs](./generate.mjs) on ${new Date().toISOString().split("T")[0]}</sub>
 `;
 
-  const { writeFileSync } = await import("node:fs");
-  writeFileSync("README.md", md);
-  writeFileSync("stats.svg", generateStatsSvg(stats));
-  writeFileSync("languages.svg", generateLangsSvg(langs));
-  if (grafana) {
-    writeFileSync("ai.svg", generateAISvg(grafana));
-    writeFileSync("server.svg", generateServerSvg(grafana));
+  const { writeFileSync, readFileSync, existsSync } = await import("node:fs");
+  let thm = null;
+  if (existsSync("thm-stats.json")) {
+    try { thm = JSON.parse(readFileSync("thm-stats.json", "utf-8")); } catch {}
   }
-  if (travel) writeFileSync("travel.svg", generateMovementSvg(travel));
-  const files = ["README.md", "stats.svg", "languages.svg"];
-  if (grafana) files.push("ai.svg", "server.svg");
-  if (travel) files.push("travel.svg");
-  console.log(files.join(", ") + " generated.");
+
+  writeFileSync("README.md", md);
+  writeFileSync("dashboard.svg", generateDashboardSvg(stats, langs, grafana, travel, profile, thm, htb));
+  console.log("README.md, dashboard.svg generated.");
 }
 
 generate().catch((err) => {

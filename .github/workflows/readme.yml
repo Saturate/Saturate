@@ -5,7 +5,7 @@ on:
     - cron: "0 6 * * *" # Daily at 06:00 UTC
   push:
     branches: [master]
-    paths: [generate.mjs]
+    paths: [generate.mjs, fetch-thm.mjs]
   workflow_dispatch:
 
 permissions:
@@ -21,15 +21,25 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Fetch TryHackMe stats
+        run: node fetch-thm.mjs
+        continue-on-error: true
+
       - name: Generate README
         run: node generate.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DAWARICH_API_KEY: ${{ secrets.DAWARICH_API_KEY }}
+          GRAFANA_TOKEN: ${{ secrets.GRAFANA_TOKEN }}
+          HTB_TOKEN: ${{ secrets.HTB_TOKEN }}
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md stats.svg languages.svg
-          git diff --staged --quiet || git commit -m "docs: update README with latest GitHub data"
+          git add README.md dashboard.svg
+          git diff --staged --quiet || git commit -m "docs: update README with latest data"
           git push
