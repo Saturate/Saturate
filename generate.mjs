@@ -770,16 +770,13 @@ async function generate() {
     fetchHTBStats(),
   ]);
 
-  const memberSince = new Date(profile.created_at).getFullYear();
-  const now = new Date();
-  const years = now.getFullYear() - memberSince;
 
 
   const md = `# ${DISPLAY_NAME}
 
 Full-stack builder from ${LOCATION}. I split my time between security research and AI agent tooling, with a long history of shipping DevOps infrastructure, browser extensions, game mods, and whatever else catches my interest.
 
-${years}+ years on GitHub. ${profile.public_repos} public repos. Building at [Remmik](https://github.com/Remmik) & [NORRIQ](https://norriq.com).
+${profile.public_repos} public repos. Building at [Remmik](https://github.com/Remmik) & [NORRIQ](https://norriq.com).
 
 [![Website](https://img.shields.io/badge/akj.io-000?style=flat-square&logo=safari&logoColor=white)](${WEBSITE})
 [![Twitter](https://img.shields.io/badge/@${TWITTER}-000?style=flat-square&logo=x&logoColor=white)](https://x.com/${TWITTER})

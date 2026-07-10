@@ -2,7 +2,7 @@
 
 Full-stack builder from Copenhagen, Denmark. I split my time between security research and AI agent tooling, with a long history of shipping DevOps infrastructure, browser extensions, game mods, and whatever else catches my interest.
 
-16+ years on GitHub. 168 public repos. Building at [Remmik](https://github.com/Remmik) & [NORRIQ](https://norriq.com).
+168 public repos. Building at [Remmik](https://github.com/Remmik) & [NORRIQ](https://norriq.com).
 
 [![Website](https://img.shields.io/badge/akj.io-000?style=flat-square&logo=safari&logoColor=white)](https://akj.io)
 [![Twitter](https://img.shields.io/badge/@allankjensen-000?style=flat-square&logo=x&logoColor=white)](https://x.com/allankjensen)
