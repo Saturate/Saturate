@@ -2,7 +2,7 @@
 
 Full-stack builder from Copenhagen, Denmark. I split my time between security research and AI agent tooling, with a long history of shipping DevOps infrastructure, browser extensions, game mods, and whatever else catches my interest.
 
-16+ years on GitHub. 166 public repos. Building at [Remmik](https://github.com/Remmik) & [NORRIQ](https://norriq.com).
+16+ years on GitHub. 167 public repos. Building at [Remmik](https://github.com/Remmik) & [NORRIQ](https://norriq.com).
 
 [![Website](https://img.shields.io/badge/akj.io-000?style=flat-square&logo=safari&logoColor=white)](https://akj.io)
 [![Twitter](https://img.shields.io/badge/@allankjensen-000?style=flat-square&logo=x&logoColor=white)](https://x.com/allankjensen)
@@ -45,18 +45,18 @@ Full-stack builder from Copenhagen, Denmark. I split my time between security re
 
 | Repository | Description | Stars | PRs | Downloads/mo |
 |:-----------|:------------|------:|----:| -----------:|
-| [pnpm/pnpm](https://github.com/pnpm/pnpm) | Fast, disk space efficient package manager | 35,730 | 13 |  |
+| [pnpm/pnpm](https://github.com/pnpm/pnpm) | Fast, disk space efficient package manager | 35,736 | 13 |  |
 | [pnpm/pacquet](https://github.com/pnpm/pacquet) | The official pnpm rewrite in Rust | 1,160 | 9 |  |
-| [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) | JavaScript API for Chrome and Firefox | 95,317 | 2 |  |
-| [npm/npm](https://github.com/npm/npm) | This repository is moving to: https://github.com/npm/cli | 17,626 | 1 |  |
-| [jumbocontext/jumbo.cli](https://github.com/jumbocontext/jumbo.cli) | Memory and Context Orchestration for Coding Agents | 259 | 6 | 3,772 |
-| [VincentGarreau/particles.js](https://github.com/VincentGarreau/particles.js) | A lightweight JavaScript library for creating particles | 30,223 | 1 | 89,793 |
+| [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) | JavaScript API for Chrome and Firefox | 95,363 | 2 |  |
+| [npm/npm](https://github.com/npm/npm) | This repository is moving to: https://github.com/npm/cli | 17,627 | 1 |  |
+| [jumbocontext/jumbo.cli](https://github.com/jumbocontext/jumbo.cli) | Memory and Context Orchestration for Coding Agents | 260 | 6 | 3,772 |
+| [VincentGarreau/particles.js](https://github.com/VincentGarreau/particles.js) | A lightweight JavaScript library for creating particles | 30,225 | 1 | 89,793 |
 | [select2/select2](https://github.com/select2/select2) | Select2 is a jQuery based replacement for select boxes. It supports searching... | 25,912 | 1 | 3,359,973 |
-| [reddit-archive/reddit](https://github.com/reddit-archive/reddit) | historical code from reddit.com | 16,964 | 1 |  |
+| [reddit-archive/reddit](https://github.com/reddit-archive/reddit) | historical code from reddit.com | 16,963 | 1 |  |
 | [uxsolutions/bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | A datepicker for twitter bootstrap (@twbs) | 12,655 | 1 | 941,478 |
-| [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) | The Microsoft community Windows Package Manager manifest repository | 10,806 | 2 |  |
+| [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) | The Microsoft community Windows Package Manager manifest repository | 10,807 | 2 |  |
 | [edwardtufte/tufte-css](https://github.com/edwardtufte/tufte-css) | Style your webpage like Edward Tufte’s handouts. | 6,515 | 1 | 1,094 |
-| [PathOfBuildingCommunity/PathOfBuilding](https://github.com/PathOfBuildingCommunity/PathOfBuilding) | Offline build planner for Path of Exile. | 5,318 | 1 |  |
+| [PathOfBuildingCommunity/PathOfBuilding](https://github.com/PathOfBuildingCommunity/PathOfBuilding) | Offline build planner for Path of Exile. | 5,321 | 1 |  |
 | [honestbleeps/Reddit-Enhancement-Suite](https://github.com/honestbleeps/Reddit-Enhancement-Suite) | Reddit Enhancement Suite | 4,461 | 1 |  |
 | [PokemonGoF/PokemonGo-Bot](https://github.com/PokemonGoF/PokemonGo-Bot) | The Pokemon Go Bot, baking with community. | 3,900 | 1 |  |
 | [pocketjoso/penthouse](https://github.com/pocketjoso/penthouse) | Generate critical css for your web pages | 2,681 | 3 | 192,976 |
@@ -355,11 +355,11 @@ PentiaLabs/watch.publish.projects:
 ## Stats
 
 <p>
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Saturate&show_icons=true&count_private=true&include_all_commits=true&theme=transparent&text_color=c9d1d9&title_color=58a6ff&icon_color=58a6ff&border_color=30363d&hide_border=false" height="170" alt="GitHub stats" />
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Saturate&layout=compact&langs_count=10&hide=coffeescript&theme=transparent&text_color=c9d1d9&title_color=58a6ff&icon_color=58a6ff&border_color=30363d&hide_border=false" height="170" alt="Top languages" />
-</p>
-<p>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Saturate&theme=transparent&ring=58a6ff&fire=58a6ff&currStreakLabel=c9d1d9&sideLabels=c9d1d9&dates=c9d1d9&stroke=30363d&border=30363d&currStreakNum=c9d1d9&sideNums=c9d1d9" height="170" alt="GitHub streak" />
+  <img src="./stats.svg" alt="GitHub stats" />
+  <img src="./languages.svg" alt="Top languages" />
+  <img src="./ai.svg" alt="AI stats" />
+  <img src="./server.svg" alt="Server stats" />
+  <img src="./travel.svg" alt="Movement stats" />
 </p>
 
 ---

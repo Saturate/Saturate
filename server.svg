@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="152" viewBox="0 0 310 152">
+  <rect width="308" height="150" x="1" y="1" rx="8" fill="#1e1e2e" stroke="#45475a" stroke-width="1"/>
+  <text x="20" y="32" fill="#fab387" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" font-weight="600">Server</text>
+  <line x1="20" y1="48" x2="290" y2="48" stroke="#45475a" stroke-width="0.5"/>
+  <g transform="translate(20, 61)">
+      <svg width="16" height="16" viewBox="0 0 24 24" stroke="#fab387" fill="none"><circle cx="12" cy="12" r="10" fill="none" stroke-width="2"/><polyline points="12 6 12 12 16 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </g>
+    <text x="44" y="72" fill="#bac2de" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13">Uptime</text>
+    <text x="290" y="72" fill="#cdd6f4" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" text-anchor="end">103 days</text>
+    <g transform="translate(20, 91)">
+      <svg width="16" height="16" viewBox="0 0 24 24" stroke="#fab387" fill="none"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z" fill="none" stroke-width="2"/><path d="m7 16.5-4.74-2.85" fill="none" stroke-width="2"/><path d="m7 16.5 5-3" fill="none" stroke-width="2"/><path d="M7 16.5v5.17" fill="none" stroke-width="2"/><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z" fill="none" stroke-width="2"/><path d="m17 16.5-5-3" fill="none" stroke-width="2"/><path d="m17 16.5 4.74-2.85" fill="none" stroke-width="2"/><path d="M17 16.5v5.17" fill="none" stroke-width="2"/><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z" fill="none" stroke-width="2"/><path d="M12 8 7.26 5.15" fill="none" stroke-width="2"/><path d="m12 8 4.74-2.85" fill="none" stroke-width="2"/><path d="M12 13.5V8" fill="none" stroke-width="2"/></svg>
+    </g>
+    <text x="44" y="102" fill="#bac2de" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13">Services</text>
+    <text x="290" y="102" fill="#cdd6f4" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" text-anchor="end">40</text>
+    <g transform="translate(20, 121)">
+      <svg width="16" height="16" viewBox="0 0 24 24" stroke="#fab387" fill="none"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" fill="none" stroke-width="2"/></svg>
+    </g>
+    <text x="44" y="132" fill="#bac2de" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13">WAF events</text>
+    <text x="290" y="132" fill="#cdd6f4" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" text-anchor="end">693,268</text>
+</svg>
