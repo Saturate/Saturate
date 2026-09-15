@@ -31,17 +31,17 @@ CLI and Node.js library that hacks Denmark's MitID authentication into the termi
 
 | Repository | Description | Stars | PRs | Downloads/mo |
 |:-----------|:------------|------:|----:| -----------:|
-| [pnpm/pnpm](https://github.com/pnpm/pnpm) | Fast, disk space efficient package manager | 36,516 | 13 |  |
+| [pnpm/pnpm](https://github.com/pnpm/pnpm) | Fast, disk space efficient package manager | 36,527 | 13 |  |
 | [pnpm/pacquet](https://github.com/pnpm/pacquet) | The official pnpm rewrite in Rust | 1,159 | 9 |  |
 | [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) | JavaScript API for Chrome and Firefox | 95,579 | 2 |  |
 | [npm/npm](https://github.com/npm/npm) | This repository is moving to: https://github.com/npm/cli | 17,619 | 1 |  |
 | [VincentGarreau/particles.js](https://github.com/VincentGarreau/particles.js) | A lightweight JavaScript library for creating particles | 30,208 | 1 | 75,525 |
 | [select2/select2](https://github.com/select2/select2) | Select2 is a jQuery based replacement for select boxes. It supports searching... | 25,902 | 1 | 2,666,170 |
-| [reddit-archive/reddit](https://github.com/reddit-archive/reddit) | historical code from reddit.com | 16,963 | 1 |  |
-| [uxsolutions/bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | A datepicker for twitter bootstrap (@twbs) | 12,642 | 1 | 777,873 |
+| [reddit-archive/reddit](https://github.com/reddit-archive/reddit) | historical code from reddit.com | 16,964 | 1 |  |
+| [uxsolutions/bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | A datepicker for twitter bootstrap (@twbs) | 12,643 | 1 | 777,873 |
 | [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) | The Microsoft community Windows Package Manager manifest repository | 11,075 | 2 |  |
 | [edwardtufte/tufte-css](https://github.com/edwardtufte/tufte-css) | Style your webpage like Edward Tufte’s handouts. | 6,556 | 1 | 757 |
-| [PathOfBuildingCommunity/PathOfBuilding](https://github.com/PathOfBuildingCommunity/PathOfBuilding) | Offline build planner for Path of Exile. | 5,441 | 1 |  |
+| [PathOfBuildingCommunity/PathOfBuilding](https://github.com/PathOfBuildingCommunity/PathOfBuilding) | Offline build planner for Path of Exile. | 5,442 | 1 |  |
 | [honestbleeps/Reddit-Enhancement-Suite](https://github.com/honestbleeps/Reddit-Enhancement-Suite) | Reddit Enhancement Suite | 4,517 | 1 |  |
 | [PokemonGoF/PokemonGo-Bot](https://github.com/PokemonGoF/PokemonGo-Bot) | The Pokemon Go Bot, baking with community. | 3,922 | 1 |  |
 | [pocketjoso/penthouse](https://github.com/pocketjoso/penthouse) | Generate critical css for your web pages | 2,681 | 3 | 125,552 |
@@ -50,7 +50,7 @@ CLI and Node.js library that hacks Denmark's MitID authentication into the termi
 | [jshackles/Enhanced_Steam](https://github.com/jshackles/Enhanced_Steam) | Enhances the Steam Experience | 1,311 | 8 |  |
 | [voat/voat](https://github.com/voat/voat) | The code that powers Voat | 1,185 | 1 |  |
 | [raskrebs/sonar](https://github.com/raskrebs/sonar) | CLI tool for inspecting and managing services listening on localhost ports | 1,093 | 3 |  |
-| [FarmBot/Farmbot-Web-App](https://github.com/FarmBot/Farmbot-Web-App) | Setup, customize, and control FarmBot from any device | 974 | 1 | 106 |
+| [FarmBot/Farmbot-Web-App](https://github.com/FarmBot/Farmbot-Web-App) | Setup, customize, and control FarmBot from any device | 973 | 1 | 106 |
 | [SlexAxton/require-handlebars-plugin](https://github.com/SlexAxton/require-handlebars-plugin) | A plugin for handlebars in require.js (both in dev and build) | 795 | 2 | 6,671 |
 | [eugef/node-mocks-http](https://github.com/eugef/node-mocks-http) | Mock 'http' objects for testing Express,js, Next.js and Koa routing functions | 771 | 2 | 8,006,199 |
 | [vwall/compass-twitter-bootstrap](https://github.com/vwall/compass-twitter-bootstrap) | The twitter bootstrap ported to compass | 720 | 1 |  |
@@ -64,7 +64,7 @@ CLI and Node.js library that hacks Denmark's MitID authentication into the termi
 | [jamesshore/object_playground](https://github.com/jamesshore/object_playground) | A tool for visualizing and experimenting with JavaScript object relationships. | 412 | 1 |  |
 | [jumbocontext/cli](https://github.com/jumbocontext/cli) | Memory and Context Orchestration for Coding Agents | 270 | 6 | 1,412 |
 | [nasa/code-nasa-gov](https://github.com/nasa/code-nasa-gov) | code.nasa.gov site leveraging the Open Source Catalog on github.com, powered ... | 250 | 1 |  |
-| [CycloneDX/cyclonedx-rust-cargo](https://github.com/CycloneDX/cyclonedx-rust-cargo) | Creates CycloneDX Software Bill of Materials (SBOM) from Rust (Cargo) projects | 177 | 1 |  |
+| [CycloneDX/cyclonedx-rust-cargo](https://github.com/CycloneDX/cyclonedx-rust-cargo) | Creates CycloneDX Software Bill of Materials (SBOM) from Rust (Cargo) projects | 178 | 1 |  |
 | [ensingm2/saliengame_idler](https://github.com/ensingm2/saliengame_idler) | A Javascript Idler for the 2018 Steam Summer 'Salien' Minigame | 162 | 2 |  |
 | [jfoucher/flickholdr](https://github.com/jfoucher/flickholdr) | Dummy images from flickr, by tags | 126 | 1 |  |
 | [tehp/OpenPoGoBot](https://github.com/tehp/OpenPoGoBot) | A PokemonGo Python bot - NO LONGER MAINTAINED | 122 | 1 |  |
@@ -347,4 +347,4 @@ PentiaLabs/watch.publish.projects:
 
 ---
 
-<sub>Generated by [generate.mjs](./generate.mjs) on 2026-09-14</sub>
+<sub>Generated by [generate.mjs](./generate.mjs) on 2026-09-15</sub>
