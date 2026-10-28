@@ -31,68 +31,68 @@ CLI and Node.js library that hacks Denmark's MitID authentication into the termi
 
 | Repository | Description | Stars | PRs | Downloads/mo |
 |:-----------|:------------|------:|----:| -----------:|
-| [pnpm/pnpm](https://github.com/pnpm/pnpm) | Fast, disk space efficient package manager | 36,929 | 13 |  |
+| [pnpm/pnpm](https://github.com/pnpm/pnpm) | Fast, disk space efficient package manager | 36,939 | 13 |  |
 | [pnpm/pacquet](https://github.com/pnpm/pacquet) | The official pnpm rewrite in Rust | 1,159 | 9 |  |
-| [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) | JavaScript API for Chrome and Firefox | 95,750 | 2 |  |
-| [npm/npm](https://github.com/npm/npm) | This repository is moving to: https://github.com/npm/cli | 17,617 | 1 |  |
-| [VincentGarreau/particles.js](https://github.com/VincentGarreau/particles.js) | A lightweight JavaScript library for creating particles | 30,201 | 1 | 98,642 |
-| [select2/select2](https://github.com/select2/select2) | Select2 is a jQuery based replacement for select boxes. It supports searching... | 25,912 | 1 | 3,376,859 |
-| [reddit-archive/reddit](https://github.com/reddit-archive/reddit) | historical code from reddit.com | 16,951 | 1 |  |
-| [uxsolutions/bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | A datepicker for twitter bootstrap (@twbs) | 12,635 | 1 | 962,700 |
-| [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) | The Microsoft community Windows Package Manager manifest repository | 11,245 | 2 |  |
-| [edwardtufte/tufte-css](https://github.com/edwardtufte/tufte-css) | Style your webpage like Edward Tufte’s handouts. | 6,587 | 1 | 816 |
-| [PathOfBuildingCommunity/PathOfBuilding](https://github.com/PathOfBuildingCommunity/PathOfBuilding) | Offline build planner for Path of Exile. | 5,470 | 1 |  |
-| [honestbleeps/Reddit-Enhancement-Suite](https://github.com/honestbleeps/Reddit-Enhancement-Suite) | Reddit Enhancement Suite | 4,534 | 1 |  |
+| [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer) | JavaScript API for Chrome and Firefox | 95,758 | 2 |  |
+| [npm/npm](https://github.com/npm/npm) | This repository is moving to: https://github.com/npm/cli | 17,615 | 1 |  |
+| [VincentGarreau/particles.js](https://github.com/VincentGarreau/particles.js) | A lightweight JavaScript library for creating particles | 30,200 | 1 | 88,961 |
+| [select2/select2](https://github.com/select2/select2) | Select2 is a jQuery based replacement for select boxes. It supports searching... | 25,911 | 1 | 2,422,495 |
+| [reddit-archive/reddit](https://github.com/reddit-archive/reddit) | historical code from reddit.com | 16,949 | 1 |  |
+| [uxsolutions/bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | A datepicker for twitter bootstrap (@twbs) | 12,635 | 1 | 655,617 |
+| [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) | The Microsoft community Windows Package Manager manifest repository | 11,253 | 2 |  |
+| [edwardtufte/tufte-css](https://github.com/edwardtufte/tufte-css) | Style your webpage like Edward Tufte’s handouts. | 6,587 | 1 | 2,479 |
+| [PathOfBuildingCommunity/PathOfBuilding](https://github.com/PathOfBuildingCommunity/PathOfBuilding) | Offline build planner for Path of Exile. | 5,469 | 1 |  |
+| [honestbleeps/Reddit-Enhancement-Suite](https://github.com/honestbleeps/Reddit-Enhancement-Suite) | Reddit Enhancement Suite | 4,535 | 1 |  |
 | [PokemonGoF/PokemonGo-Bot](https://github.com/PokemonGoF/PokemonGo-Bot) | The Pokemon Go Bot, baking with community. | 3,927 | 1 |  |
-| [pocketjoso/penthouse](https://github.com/pocketjoso/penthouse) | Generate critical css for your web pages | 2,677 | 3 | 197,067 |
+| [pocketjoso/penthouse](https://github.com/pocketjoso/penthouse) | Generate critical css for your web pages | 2,677 | 3 | 107,745 |
 | [ctfs/resources](https://github.com/ctfs/resources) | A general collection of information, tools, and tips regarding CTFs and simil... | 1,830 | 1 |  |
-| [sindresorhus/gulp-rev](https://github.com/sindresorhus/gulp-rev) | Static asset revisioning by appending content hash to filenames: `unicorn.css... | 1,535 | 1 | 365,325 |
+| [sindresorhus/gulp-rev](https://github.com/sindresorhus/gulp-rev) | Static asset revisioning by appending content hash to filenames: `unicorn.css... | 1,535 | 1 | 245,972 |
 | [jshackles/Enhanced_Steam](https://github.com/jshackles/Enhanced_Steam) | Enhances the Steam Experience | 1,305 | 8 |  |
 | [voat/voat](https://github.com/voat/voat) | The code that powers Voat | 1,183 | 1 |  |
 | [raskrebs/sonar](https://github.com/raskrebs/sonar) | CLI tool for inspecting and managing services listening on localhost ports | 1,093 | 3 |  |
-| [FarmBot/Farmbot-Web-App](https://github.com/FarmBot/Farmbot-Web-App) | Setup, customize, and control FarmBot from any device | 974 | 1 | 157 |
-| [SlexAxton/require-handlebars-plugin](https://github.com/SlexAxton/require-handlebars-plugin) | A plugin for handlebars in require.js (both in dev and build) | 795 | 2 | 9,057 |
-| [eugef/node-mocks-http](https://github.com/eugef/node-mocks-http) | Mock 'http' objects for testing Express,js, Next.js and Koa routing functions | 770 | 2 | 8,920,081 |
+| [FarmBot/Farmbot-Web-App](https://github.com/FarmBot/Farmbot-Web-App) | Setup, customize, and control FarmBot from any device | 974 | 1 | 69 |
+| [SlexAxton/require-handlebars-plugin](https://github.com/SlexAxton/require-handlebars-plugin) | A plugin for handlebars in require.js (both in dev and build) | 795 | 2 | 6,238 |
+| [eugef/node-mocks-http](https://github.com/eugef/node-mocks-http) | Mock 'http' objects for testing Express,js, Next.js and Koa routing functions | 770 | 2 | 8,322,882 |
 | [vwall/compass-twitter-bootstrap](https://github.com/vwall/compass-twitter-bootstrap) | The twitter bootstrap ported to compass | 719 | 1 |  |
-| [gruntjs/grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint) | Validate files with JSHint. | 702 | 1 | 858,872 |
-| [sindresorhus/gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) | Prefix CSS | 683 | 1 | 1,017,774 |
-| [Mastermindzh/react-cookie-consent](https://github.com/Mastermindzh/react-cookie-consent) | A small, simple and customizable cookie consent bar for use in React applicat... | 638 | 1 | 512,868 |
-| [yeoman/generator-backbone](https://github.com/yeoman/generator-backbone) | Scaffold out a Backbone.js project | 633 | 1 | 169 |
+| [gruntjs/grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint) | Validate files with JSHint. | 702 | 1 | 586,829 |
+| [sindresorhus/gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) | Prefix CSS | 683 | 1 | 721,389 |
+| [Mastermindzh/react-cookie-consent](https://github.com/Mastermindzh/react-cookie-consent) | A small, simple and customizable cookie consent bar for use in React applicat... | 638 | 1 | 493,879 |
+| [yeoman/generator-backbone](https://github.com/yeoman/generator-backbone) | Scaffold out a Backbone.js project | 633 | 1 | 129 |
 | [Rabrennie/anything.js](https://github.com/Rabrennie/anything.js) | A javascript library that contains anything. | 537 | 3 |  |
 | [customd/jquery-number](https://github.com/customd/jquery-number) | Easily format numbers for display use. Replace numbers inline in a document, ... | 442 | 1 |  |
 | [storybookjs/presets](https://github.com/storybookjs/presets) | 🧩 Presets for Storybook | 420 | 1 |  |
 | [jamesshore/object_playground](https://github.com/jamesshore/object_playground) | A tool for visualizing and experimenting with JavaScript object relationships. | 410 | 1 |  |
-| [jumbocontext/cli](https://github.com/jumbocontext/cli) | Memory and Context Orchestration for Coding Agents | 278 | 6 | 3,832 |
+| [jumbocontext/cli](https://github.com/jumbocontext/cli) | Memory and Context Orchestration for Coding Agents | 278 | 6 | 1,344 |
 | [nasa/code-nasa-gov](https://github.com/nasa/code-nasa-gov) | code.nasa.gov site leveraging the Open Source Catalog on github.com, powered ... | 250 | 1 |  |
-| [CycloneDX/cyclonedx-rust-cargo](https://github.com/CycloneDX/cyclonedx-rust-cargo) | Creates CycloneDX Software Bill of Materials (SBOM) from Rust (Cargo) projects | 183 | 1 |  |
+| [CycloneDX/cyclonedx-rust-cargo](https://github.com/CycloneDX/cyclonedx-rust-cargo) | Creates CycloneDX Software Bill of Materials (SBOM) from Rust (Cargo) projects | 184 | 1 |  |
 | [ensingm2/saliengame_idler](https://github.com/ensingm2/saliengame_idler) | A Javascript Idler for the 2018 Steam Summer 'Salien' Minigame | 162 | 2 |  |
 | [jfoucher/flickholdr](https://github.com/jfoucher/flickholdr) | Dummy images from flickr, by tags | 126 | 1 |  |
 | [IanTerzo/Squads](https://github.com/IanTerzo/Squads) | Alternative Microsoft Teams client | 124 | 1 |  |
 | [tehp/OpenPoGoBot](https://github.com/tehp/OpenPoGoBot) | A PokemonGo Python bot - NO LONGER MAINTAINED | 121 | 1 |  |
 | [tehp/OpenPoGoWeb](https://github.com/tehp/OpenPoGoWeb) | Web View for OpenPoGoBot | 76 | 2 |  |
-| [ada-lovecraft/generator-phaser-official](https://github.com/ada-lovecraft/generator-phaser-official) |  | 72 | 1 | 77 |
+| [ada-lovecraft/generator-phaser-official](https://github.com/ada-lovecraft/generator-phaser-official) |  | 72 | 1 | 20 |
 | [dependency-check/azuredevops](https://github.com/dependency-check/azuredevops) | Dependency Check Azure DevOps Extension | 53 | 6 |  |
 | [geeklearningio/gl-vsts-tasks-yarn](https://github.com/geeklearningio/gl-vsts-tasks-yarn) | Yarn Package Manager Visual Studio Team Services Build and Release Management... | 52 | 1 |  |
 | [gulpjs/gulpjs.github.io](https://github.com/gulpjs/gulpjs.github.io) | The gulp website | 44 | 2 |  |
-| [PentiaLabs/generator-helix](https://github.com/PentiaLabs/generator-helix) | Generate Helix compliant solutions with Yeoman. | 40 | 14 | 209 |
+| [PentiaLabs/generator-helix](https://github.com/PentiaLabs/generator-helix) | Generate Helix compliant solutions with Yeoman. | 40 | 14 | 82 |
 | [emilstahl/ipv6](https://github.com/emilstahl/ipv6) | IPv6-adresse.dk source & data | 34 | 2 |  |
-| [codecansdev/storybook-msw-addon](https://github.com/codecansdev/storybook-msw-addon) | An MSW (Mock Service Worker) addon including a control panel that enables int... | 29 | 1 | 7,518 |
+| [codecansdev/storybook-msw-addon](https://github.com/codecansdev/storybook-msw-addon) | An MSW (Mock Service Worker) addon including a control panel that enables int... | 29 | 1 | 6,504 |
 | [licoffe/POE-Stash-indexer](https://github.com/licoffe/POE-Stash-indexer) | A Path of Exile stash indexer for Windows, Mac and Linux | 21 | 2 |  |
 | [Thingholm/hvadskaljegstemme.dk](https://github.com/Thingholm/hvadskaljegstemme.dk) |  | 20 | 1 |  |
-| [soen/Conjunction](https://github.com/soen/Conjunction) | A Sitecore utility designed to create configurable and personalizable queries... | 12 | 3 | 19 |
+| [soen/Conjunction](https://github.com/soen/Conjunction) | A Sitecore utility designed to create configurable and personalizable queries... | 12 | 3 | 9 |
 | [Codher/pizza.js](https://github.com/Codher/pizza.js) | Learn how to build reactive user interfaces with Vue.js | 4 | 1 |  |
 | [axr/extras](https://github.com/axr/extras) | Side projects related to AXR, such as syntax coloring, useful tools, export p... | 4 | 2 |  |
 | [galtrold/propeller.mvc](https://github.com/galtrold/propeller.mvc) |  | 2 | 2 |  |
-| [PentiaLabs/crust-io](https://github.com/PentiaLabs/crust-io) | Static site generator with support for hiearichal page structure. | 2 | 1 | 155 |
+| [PentiaLabs/crust-io](https://github.com/PentiaLabs/crust-io) | Static site generator with support for hiearichal page structure. | 2 | 1 | 78 |
 | [dersphere/script.screensaver.nyancat](https://github.com/dersphere/script.screensaver.nyancat) | Just a simple Nyancat/Pop-Tart Cat Screensaver for XBMC | 2 | 1 |  |
-| [PentiaLabs/speedtracker](https://github.com/PentiaLabs/speedtracker) | 📉 Visualisation layer and data store for SpeedTracker https://pentialabs.git... | 1 | 1 | 105 |
-| [PentiaLabs/Package.Installer](https://github.com/PentiaLabs/Package.Installer) | Package installer npm package | 1 | 1 | 87 |
+| [PentiaLabs/speedtracker](https://github.com/PentiaLabs/speedtracker) | 📉 Visualisation layer and data store for SpeedTracker https://pentialabs.git... | 1 | 1 | 32 |
+| [PentiaLabs/Package.Installer](https://github.com/PentiaLabs/Package.Installer) | Package installer npm package | 1 | 1 | 18 |
 | [birkestroem/NougatUI](https://github.com/birkestroem/NougatUI) | NodeJS package for Nuget | 1 | 2 |  |
 | [TwilightStrand/poechallenges.cc](https://github.com/TwilightStrand/poechallenges.cc) | Challenge tracker for Path of Exile leagues with guides, price lookups, and p... |  | 2 |  |
 | [TwilightStrand/twilight-strand](https://github.com/TwilightStrand/twilight-strand) | PoE build planner - Rust WASM engine, dual Lua/Rust validation, lossless bina... |  | 2 |  |
 | [BarkAgency/website](https://github.com/BarkAgency/website) | barkagency.dk |  | 10 |  |
 | [soen/Sc.StaticAssets](https://github.com/soen/Sc.StaticAssets) |  |  | 1 |  |
-| [PentiaLabs/watch.publish.projects](https://github.com/PentiaLabs/watch.publish.projects) | Extending publish-projects to auto publish projects that has changed |  | 1 | 65 |
+| [PentiaLabs/watch.publish.projects](https://github.com/PentiaLabs/watch.publish.projects) | Extending publish-projects to auto publish projects that has changed |  | 1 | 17 |
 
 
 <!--
@@ -344,4 +344,4 @@ PentiaLabs/watch.publish.projects:
 
 ---
 
-<sub>Generated by [generate.mjs](./generate.mjs) on 2026-10-27</sub>
+<sub>Generated by [generate.mjs](./generate.mjs) on 2026-10-28</sub>
